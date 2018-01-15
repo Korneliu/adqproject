@@ -1,0 +1,15 @@
+{
+  "name": "adq",
+  "version": "1.0.0",
+  "description": "Capstone project for back end",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Max",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
