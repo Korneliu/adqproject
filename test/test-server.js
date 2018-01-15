@@ -12,4 +12,11 @@ describe('index', function () {
 			res.should.have.status(200);
 		});
 	});
+	it('should exist', function() {
+		return chai.request(app)
+		.get('/profile.html')
+		.then(function (res) {
+			res.should.have.status(200);
+		});
+	});
 });
