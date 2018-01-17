@@ -4,7 +4,7 @@ const app = express();
 app.use(express.static('public'));
 app.listen(process.env.PORT || 8080);
 const{PORT} = require('./config');
-console.log(`App is litening on port ${process.env.port}`);
+console.log(`App is litening on port ${process.env.Port}`);
 
 app.get("/", (request, response) => {
   response.sendFile(__dirname + '/public/index.html');
