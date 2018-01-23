@@ -1,3 +1,86 @@
 h1 {
  color: red; 
 }
+
+*{
+  box-sizing : border-box;
+}
+.main {
+  width: 100%;
+  text-align: center; 
+}
+.overlay {
+  background-color: rgba(0,0,0,0.3);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 100;
+  display: none;
+  cursor: pointer;
+}
+.questions{
+  position: relative;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  background-color: #95c0c6;
+  align-items : flex-start;
+  }
+.ansYes {
+  width: 50%;
+  display: flex;
+  flex-direction: column; 
+}
+.ansNo {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+.content {
+  overflow: hidden;
+}
+.box {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  background-color: #efebde;
+  border: 1px solid black;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.boxName {
+  color: #6d6446;
+  text-align: left;
+}
+.showMore {
+  font-weight: 800;
+}
+.date {
+  font-size: 0.6em;
+  text-align: right;
+}
+.popUp {
+  position: absolute;
+  height: auto;
+  width: 80%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 101;
+}
+.showLess {
+  font-weight: 800;
+}
+.invisible {
+  display: none;
+}
+.blur-all {
+   filter: blur(3px);
+}
+.showMore,.showLess:hover {
+  cursor: pointer;  
+}
+
+
+
