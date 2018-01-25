@@ -81,6 +81,31 @@ h1 {
 .showMore,.showLess:hover {
   cursor: pointer;  
 }
-
+.mainIndex {
+  width: 800px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 100px auto;
+}
+.boxIndex {
+  width: 45%;
+  height: 100px;
+  background-color: #c4cea5;
+  text-align: center;
+  border: 1px solid black;
+  line-height: 6;
+  margin: 10px;
+}
+.navBar {
+  height: 40px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+}
+.boxProfile {
+  border: 1px solid black;
+  background-color: #e2cd8e;
+  padding: 10px;
+}
 
 
