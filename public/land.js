@@ -4,47 +4,47 @@ let mock_question =
     answers: [
     {
       author: "Max",
-      content: "Lorem ipsum dolor sit Lorem ipsum dolor sit",
+      content: "Lorem ipsum dolor sit Lorem ipsum dolor sit Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,",
       published_date: "6 May 1998",
       typeOfAnswer: "yes"
     },
     {
-      author: "Artur",
-      content: "Lorem ipsum dolor sit Lorem or sitLorem ipsum dolor sit Lorem ipsum dolor sitLorem ipsum dolor sit Lorem ipsum dolor sitLorem ipsum dolor sit Lorem ipsum dolor sit",
-      published_date: "4 February 2019",
-      typeOfAnswer: "yes"
-    },
-    {
-      author: "Mark",
-      content: "Lorem ipsum dolor siipsum dolor sit Lorem ipsum r sit Lorem ipsum dolor sit",
-      published_date: "4 February 2001",
-      typeOfAnswer: "yes"
-    },
-    {
-      author: "John",
-      content: " dolor sitLorem ipsum dolor sit Lorem ipsum dolor sit",
+      author: "Kim",
+      content: "Lorem ipsum dolor sit Lorem ipsum dolor sitLorem ipsum dolor sit Lorem ipsum dolor sitLorem ipsum dolor sit Lorem ipsum dolor sitLorem ipsum dolor sit Lorem ipsum doloLorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,r sit",
       published_date: "4 February 1998",
       typeOfAnswer: "yes"
     },
     {
-      author: "Ken",
-      content: "Lorem ipsum dolor sitLorem ipsum dolor sit Lorem ipsum ",
-      published_date: "6 May 2017",
-      typeOfAnswer: "no"
+      author: "Tom",
+      content: "Lorem ipsum dolor sit Lorem ipsum dolor sitLorem ipsum dolor sit Lorem ipsum dolor sitLorem ipsum dolor sit Lorem ipsum dolor sitLorem ipsum dolor sit Lorem ipsum doloLorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,r sit",
+      published_date: "4 February 1998",
+      typeOfAnswer: "yes"
+    },
+    {
+      author: "Edward",
+      content: "Lorem ipsum dolor sit Lorem ipsum dolor sitLorem ipsum dolor sit Lorem ipsum dolor sitLorem ipsum dolor sit Lorem ipsum dolor sitLorem ipsum dolor sit Lorem ipsum doloLorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,r sit",
+      published_date: "4 February 1998",
+      typeOfAnswer: "yes"
     },
     {
       author: "Amy",
-      content: "Lorem ipsum dolor sitLorem ipsum dolor sit Lorem ipsum ",
-      published_date: "6 May 2017",
+      content: "Lorem ipsum dolor Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,sitLorem ipsum dolor sit Lorem ipsum ",
+      published_date: "6 June 2016",
       typeOfAnswer: "no"
     },
     {
-      author: "Brian",
-      content: "Lorem ipsum dolor sitLorem ipsum dolor sit Lorem ipsum ",
-      published_date: "6 May 2017",
+      author: "Natalie",
+      content: "Lorem ipsum dolor Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,sitLorem ipsum dolor sit Lorem ipsum ",
+      published_date: "6 December 2016",
+      typeOfAnswer: "no"
+    },
+    {
+      author: "Jennifer",
+      content: "Lorem ipsum dolor Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,sitLorem ipsum dolor sit Lorem ipsum ",
+      published_date: "6 May 2016",
       typeOfAnswer: "no"
     }
-   ]
+    ] 
   }
   
 function getQuestion(){
@@ -58,7 +58,6 @@ function getQuestion(){
  
   return Promise.resolve(mock_question);
 }
-
 
 $(function(){
   getQuestion()

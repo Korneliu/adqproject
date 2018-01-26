@@ -16,7 +16,9 @@ app.get("/profile", (request, response) => {
 app.get("/question", (request, response) => {
   response.sendFile(__dirname + '/public/question.html');
 });
-
+app.get("/login", (request, response) => {
+  response.sendFile(__dirname + '/public/login.html');
+});
 
 
 app.listen(PORT,()=>{console.log(`App is listening on port ${PORT}`);
