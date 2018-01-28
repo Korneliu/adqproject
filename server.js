@@ -1,8 +1,15 @@
 'use strict';
+const cors = require('cors');
 const express = require('express');
+const router = express.Router();
+const bodyParser = require('body-parser');
+const {PORT, DATABASE_URL} = require('./config');
+const {Answers} = require('./models');
+const mongoose = require('mongoose');
 const app = express();
 app.use(express.static('public'));
-const{PORT} = require('./config');
+const jsonParser = bodyParser.json();
+mongoose.Promise = gLobal.Promise;
 
 
 app.get("/", (request, response) => {
