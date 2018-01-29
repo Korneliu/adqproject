@@ -13,7 +13,7 @@ const answerSchema = mongoose.Schema({
     }]
 });
 
-blogSchema.virtual('authorName').get(function() {
+answerSchema.virtual('authorName').get(function() {
     return `${this.author.firstName} ${this.author.lastName}`.trim();
   });
   
@@ -28,5 +28,5 @@ answerSchema.methods.serialize = function() {
     };
 };
 
-const Answers = mongoose.model('Answers', answerSchema);
+const Answers = mongoose.model('answer', answerSchema);
 module.exports = {Answers};

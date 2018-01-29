@@ -9,11 +9,25 @@ const mongoose = require('mongoose');
 const app = express();
 app.use(express.static('public'));
 const jsonParser = bodyParser.json();
-mongoose.Promise = gLobal.Promise;
+//mongoose.Promise = gLobal.Promise;
 
 
 app.get("/", (request, response) => {
   response.sendFile(__dirname + '/public/index.html');
+});
+
+app.get('/answers', (req, res) => {
+	Answers
+	.find()
+	.limit(20)
+	.then(answers => {
+		res.json(answers.map(answer => answer.serialize()));
+	})
+	.catch(
+      err => {
+        console.error(err);
+        res.status(500).json({message: 'Internal server error'});
+    });
 });
 
 app.get("/profile", (request, response) => {
