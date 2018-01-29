@@ -49,12 +49,12 @@ let mock_question =
   
 function getQuestion(){
   //fetch the list of books from the server
-//   $.ajax({
-//     url:"http://localhost:8000/answers",
-//     method:"GET"
-//   }).done(function(answers){
-//     return answers;
-//   });
+ //$.ajax({
+ // url:"http://localhost:8000/answers",
+//method:"GET"
+//}).done(function(answers){
+  // return answers;
+  //});
  
   return Promise.resolve(mock_question);
 }
