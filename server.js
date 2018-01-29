@@ -4,7 +4,8 @@ const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
 const {PORT, DATABASE_URL} = require('./config');
-const {Answers} = require('./models');
+const {Answers} = require('./models/answers.js');
+const {Question} = require('./models/questions.js');
 const mongoose = require('mongoose');
 const app = express();
 app.use(express.static('public'));
@@ -51,7 +52,7 @@ app.get('/answers/:id', (req, res) => {
 });
 
 app.post('/answers', jsonParser, (req, res) => {
-	const requiredFields = ['text','author', 'content', 'firstName','lastName','published_date'];
+	const requiredFields = ['content', 'firstName','lastName','published_date','typeOfAnswer'];
 	for (let i=0; i<requiredFields.length; i++) {
 	const field = requiredFields[i];
 		if (!(field in req.body)) {
@@ -63,13 +64,23 @@ app.post('/answers', jsonParser, (req, res) => {
 
 	Answers
 	.create({
-		text: req.body.text,
 		content: req.body.content,
 		author: {firstName:req.body.firstName,lastName:req.body.lastName},
-		published_date: req.body.published_date
+		published_date: req.body.published_date,
+		typeOfAnswer: req.body.typeOfAnswer
 	})
 	.then(
-		Answers => res.status(201).json(Answers.serialize()))
+		answer => {
+			Question.findById(req.body.id)	
+			.then(
+				question=>{
+					question.answers.push(answer)
+					question.save()
+					.then(question=>res.status(200).json(question))
+					.catch(err=>console.log(err))
+				}
+			)
+		})
 	.catch(err=> {
 		res.status(500).json({message: 'internal error'});
 	});
@@ -121,12 +132,35 @@ app.put('/answers/:id', jsonParser, (req, res) => {
   ) 
 });
 
+app.post('/question', jsonParser, (req, res) => {
+	const requiredFields = ['text'];
+	for (let i=0; i<requiredFields.length; i++) {
+	const field = requiredFields[i];
+		if (!(field in req.body)) {
+			const message = `Missing \`${field}\` in request body`
+			console.error(message);
+			return res.status(400).send(message);
+		}
+	}
+
+	Question
+	.create({
+		text: req.body.text,
+	})
+	.then(
+		question => res.status(201).json(question))
+	.catch(err=> {
+		res.status(500).json({message: 'internal error'});
+	})
+});
+
+
 
 
 let server;
 function runServer(databaseUrl=DATABASE_URL, port=PORT) {
   return new Promise((resolve, reject) => {
-    mongoose.connect(databaseUrl, { useMongoClient: true }, err => {
+    mongoose.connect(databaseUrl, {}, err => {
       if (err) {
         return reject(err);
       }
