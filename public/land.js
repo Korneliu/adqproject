@@ -1,4 +1,4 @@
-let mock_question = 
+/*let mock_question = 
   {
     text: "Did we land on the moon?",
     answers: [
@@ -100,4 +100,4 @@ $(function(){
       $('.overlay').hide();
     })
 });
-
+*/

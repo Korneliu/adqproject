@@ -20,9 +20,9 @@ app.get("/profile", (request, response) => {
   response.sendFile(__dirname + '/public/profile.html');
 });
 
-app.get("/question", (request, response) => {
-  response.sendFile(__dirname + '/public/question.html');
-});
+//app.get("/question", (request, response) => {
+ // response.sendFile(__dirname + '/public/question.html');
+//});
 app.get("/login", (request, response) => {
   response.sendFile(__dirname + '/public/login.html');
 });
@@ -61,7 +61,6 @@ app.post('/answers', jsonParser, (req, res) => {
 			return res.status(400).send(message);
 		}
 	}
-
 	Answers
 	.create({
 		content: req.body.content,
@@ -132,6 +131,28 @@ app.put('/answers/:id', jsonParser, (req, res) => {
   ) 
 });
 
+app.get('/question', (req, res) => {
+	Question
+	.find()
+	.limit(10)
+	.then(
+		questions => res.json(questions))
+	.catch(err=> {
+		res.status(500).json({message: 'internal error'});
+	})
+});
+
+app.get('/question/:id', (req, res) => {
+  Question
+    .findById(req.params.id)
+    .then(
+			question =>res.json(question))
+    .catch(err => {
+      console.error(err);
+        res.status(500).json({message: 'Internal server error'})
+    });
+});
+		
 app.post('/question', jsonParser, (req, res) => {
 	const requiredFields = ['text'];
 	for (let i=0; i<requiredFields.length; i++) {
@@ -142,7 +163,6 @@ app.post('/question', jsonParser, (req, res) => {
 			return res.status(400).send(message);
 		}
 	}
-
 	Question
 	.create({
 		text: req.body.text,
@@ -154,6 +174,48 @@ app.post('/question', jsonParser, (req, res) => {
 	})
 });
 
+app.delete('/question/:id', (req, res) => {
+	Question
+		.findByIdAndRemove(req.params.id)
+		.then(() => {
+			res.status(204).json({ message: 'succes'});
+		})
+		.catch(err => {
+			console.error(err);
+			res.status(500).json({error: 'internal server error'});
+		});
+});
+
+app.put('/question/:id', jsonParser, (req, res) => {
+	const requiredFields = ['text']; 
+	for (let i=0; i<requiredFields.length; i++) {
+		const field = requiredFields[i];
+		if (!(field in req.body)) {
+			const message = `Missing \`${field}\` in request body`
+			console.error(message);
+			return res.status(400).send(message);
+		}
+	}
+
+	if (req.params.id !== req.body.id) {
+		const message = `Request path id \`${req.params.id}\` and request 
+		body id \`${req.body.id}\` must match `;
+		console.error(message);
+		return res.status(400).send(message);
+	}
+	console.log(`Updating answer \`${req.params.id}\``);
+	Question.findByIdAndUpdate(req.params.id,
+	  {
+		id: req.params.id,
+		text: req.body.text,
+  	},
+  	function(err) {
+  	if(err)
+  		return res.status(500).send(err)
+  			res.status(204).end();
+    }	
+  ) 
+});
 
 
 
