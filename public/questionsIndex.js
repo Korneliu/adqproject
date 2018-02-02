@@ -1,12 +1,12 @@
 
 
-    function getQuestions(){
-      return fetch('http://localhost:8080/question', {
+function getQuestions(){
+	return fetch('http://localhost:8080/question', {
   method: 'GET'
 })
-.then(res => res.json())
-.catch(err => console.log(err));  
-      }
+	.then(res => res.json())
+	.catch(err => console.log(err));  
+    }
     $(function(){
 			getQuestions()
 				.then(questions=> {
