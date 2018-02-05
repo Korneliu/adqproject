@@ -1,7 +1,7 @@
 
 
 function getQuestions(){
-	return fetch('http://localhost:8080/question', {
+	return fetch('https://adqproject.herokuapp.com/question', {
   method: 'GET'
 })
 	.then(res => res.json())
