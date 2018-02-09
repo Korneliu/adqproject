@@ -1,6 +1,6 @@
 
 function getAnswers(){
-	return fetch('https://adqproject.herokuapp.com/answers', {
+	return fetch(SERVER_URL + '/answers', {
   method: 'GET'
 })
 	.then(res => res.json())
