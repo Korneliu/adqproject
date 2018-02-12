@@ -13,6 +13,9 @@ app.use(express.static('public'));
 const jsonParser = bodyParser.json();
 //mongoose.Promise = gLobal.Promise;
 
+const {router: userRouter} = require('./users');
+
+app.use('/api/users', userRouter);
 
 app.get("/", (request, response) => {
   response.sendFile(__dirname + '/public/index.html');
