@@ -149,6 +149,7 @@ app.get('/question', (req, res) => {
 app.get('/question/:id', (req, res) => {
   Question
     .findById(req.params.id)
+		.populate('answers')
     .then(
 			question =>res.json(question))
     .catch(err => {
