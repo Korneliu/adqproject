@@ -46,6 +46,11 @@ function getQuestions(){
 				})
 		});
 
-
+$(".profile").click(function() {
+	window.location ='/profile.html';
+});
+$(".sign_up").click(function() {
+  window.location ='/register.html';
+});
 
 		

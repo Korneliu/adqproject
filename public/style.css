@@ -5,6 +5,23 @@ h1 {
 *{
   box-sizing : border-box;
 }
+.navbar {
+  width: 800px;
+  margin: 0 auto;
+  background-color: #f4b942;
+  display: flex;
+  flex-direction: row;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+}
+.navbar_box {
+  margin: 10px;
+}
+.navbar_box:hover {
+  cursor: pointer;
+  transform: scale(1.15, 1.15);
+  transition: transform 0.1s linear;
+}
 .main {
   width: 100%;
   text-align: center; 
@@ -85,7 +102,8 @@ h1 {
   width: 800px;
   display: flex;
   flex-wrap: wrap;
-  margin: 100px auto;
+  justify-content: space-around;
+  margin: 50px auto;
 }
 .boxIndex {
   width: 45%;
@@ -96,15 +114,20 @@ h1 {
   line-height: 6;
   margin: 10px;
 }
-.navBar {
-  height: 40px;
+.navbar_profile {
+  width: 800px;
   margin: 0 auto;
+  background-color: #f4b942;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+}
+.boxProfile:hover {
+  cursor: pointer;
+  transform: scale(1.09, 1.09);
+  transition: transform 0.1s linear;
 }
 .boxProfile {
-  border: 1px solid black;
-  background-color: #e2cd8e;
   padding: 10px;
 }
 .main_login {
@@ -120,4 +143,43 @@ h1 {
   display: none;
 }
 
+.register_main {
+  width: 400px;
+  margin: 100px auto;
+  display: flex;
+  flex-direction: column;  
+  justify-content: 
+}
+.register_box {
+  padding: 3px;
+  background-color:#f4b942;
+  line-height: 1;
+}
+
+.submit_boxes {
+  display: flex;
+  flex-direction: row;
+}
+.submit_register {
+  margin: 0 auto;
+  width: 50%;
+  padding: 3px;
+  border: 0px;
+}
+.submit_register:hover {
+  cursor: pointer;
+  transform: scale(1.08, 1.08);
+  transition: transform 0.1s linear; 
+}
+.submit_red {
+  background-color: #e25c34; 
+  color: white;
+}
+.submit_green {
+  background-color: #99c14f;
+  color: white;
+}
+::placeholder {
+  color: #bab7b6;
+}
 

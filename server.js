@@ -27,6 +27,9 @@ app.get("/profile", (request, response) => {
 app.get("/login", (request, response) => {
   response.sendFile(__dirname + '/public/login.html');
 });
+app.get("/register", (request, response) => {
+	response.sendFile(__dirname + '/public/register.html');
+});
 
 app.get('/answers', (req, res) => {
 	Answers

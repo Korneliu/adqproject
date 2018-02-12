@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "mocha --exit",
-    "start": "node server.js"
+    "start": "DATABASE_URL=mongodb://adqUser:adqUser@ds117868.mlab.com:17868/adqproject node server.js"
   },
   "author": "Max",
   "license": "ISC",
