@@ -1,37 +1,38 @@
 <!DOCTYPE html>
 <html lang='en-US'>
-  <head>
-      <title>ADQ</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" type="text/css" href="style.css">
-      <script
+<head>
+    <title>ADQ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script
             src="https://code.jquery.com/jquery-3.2.1.min.js"
             integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-            crossorigin="anonymous"></script>  
-  </head>
-  <body>
-  	<form class="form">
-			<div class="register_main">
-				<label class="register_box"><b>Nickname</b></label>
-					<input type="text" placeholder="Enter your Nickname" name="nickname" required>
-					<br/>
-				<label class="register_box"><b>First Name</b></label>
-					<input type="text" placeholder="Enter First name" name="firstName" required>
-					<br/>
-					<label class="register_box"><b>Last Name</b></label>
-					<input type="text" placeholder="Enter your Last name" name="lastName" required>
-					<br/>
-				<label class="register_box"><b>Password</b></label>
-					<input type="password" placeholder="Enter your Password" name="password" required>
-					<br/>
-					<br/>
-              <div class="submit_boxes">
-              <button class="submit_register submit_green" type="submit">Submit</button>
-                <button class="submit_register submit_red" type="submit">Cancel</button>
-			</div>
-    </div>        
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<form class="register_form">
+    <div class="register_main">
+        <label class="register_box"><b>Nickname</b></label>
+        <input type="text" placeholder="Enter your Nickname" name="nickname" id="nickname" required>
+        <br/>
+        <label class="register_box"><b>First Name</b></label>
+        <input type="text" placeholder="Enter First name" name="firstName" required>
+        <br/>
+        <label class="register_box"><b>Last Name</b></label>
+        <input type="text" placeholder="Enter your Last name" name="lastName" required>
+        <br/>
+        <label class="register_box"><b>Password</b></label>
+        <input type="password" placeholder="Enter your Password" name="password" required>
+        <br/>
+        <br/>
+        <div class="submit_boxes">
+            <button class="submit_register submit_green" type="submit">Submit</button>
+            <button class="submit_register submit_red" type="submit">Cancel</button>
+        </div>
+    </div>
 
-			
-		</form>  
-		<script src="register.js"></script>
-  </body>
+
+</form>
+<script src="config.js"></script>
+<script src="register.js"></script>
+</body>
