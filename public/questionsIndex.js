@@ -60,6 +60,25 @@ $(function () { //where the code starts
         })
         .catch(err => console.log(err));
   })
+
+  $('.singleQuestion').on('click','.showMore',e=>{
+      $(e.target).closest('.box').addClass('popUp');
+      $(e.target).closest('.showMore').addClass('invisible');
+      $(e.target).siblings('.showLess').removeClass('invisible');
+      $('.overlay').show();
+    })
+    $('.singleQuestion').on('click','.showLess',e=>{
+      $(e.target).closest('.box').removeClass('popUp');
+      $(e.target).closest('.showLess').addClass('invisible');
+      $(e.target).siblings('.showMore').removeClass('invisible');
+      $('.overlay').hide();
+    })
+    
+    $('.overlay').on('click', function(e){
+      e.stopPropagation();
+      $('.popUp').removeClass('popUp');
+      $('.overlay').hide();
+    })
 });
 
 $(".profile").click(function () {
