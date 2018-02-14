@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const {PORT, DATABASE_URL} = require('./config');
 const {Answers} = require('./models/answers.js');
 const {Question} = require('./models/questions.js');
-const {Register} = require('./models/register.js');
+const {User} = require('./users/models.js');
 const mongoose = require('mongoose');
 const app = express();
 app.use(express.static('public'));

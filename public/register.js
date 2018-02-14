@@ -1,16 +1,16 @@
-$(function(){
 
+$(function(){
 
   $(".register_form").submit(function(event){
     event.preventDefault();
     //get all the data from the form
-    const nickname = $('#nickname').val();
+    const username = $('#username').val();
     console.log(nickname);
 
     //validate the data
     //send to the server
     const newUser = {
-      username: nickname,
+      username: username,
       firstName: "Harry",
       lastName: "James",
       password: "12345678910"
