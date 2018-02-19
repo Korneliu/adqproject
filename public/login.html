@@ -10,15 +10,18 @@
   crossorigin="anonymous"></script>  
 </head>
 <body style="background-color: #c4cea5">
-	<form class="form">
+	<form class="login_form">
 		<div class="login_main">
 			<div class="login_header"><h2>Login</h2></div>
 			<label class="login_username"><b>Username</b></label>
-			<input class="login_username_input" type="text" placeholder="Enter Username" name="uname" required>
+			<input class="login_username_input" id="login_username" type="text" placeholder="Enter Username" name="uname" required>
 			<label class="login_password"><b>Password</b></label>
-			<input class="login_password_input"type="password" placeholder="Enter Password" name="psw" required>
+			<input class="login_password_input" id="login_password" type="password" placeholder="Enter Password" name="psw" required>
 			<button class="login_submit_button" type="submit">Login</button>
 		</div>
 	</form>  
+
+	<script src="config.js"></script>
+	<script src="login.js"></script>
 </body>
 </html>

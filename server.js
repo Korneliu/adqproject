@@ -50,11 +50,6 @@ app.get('/api/protected', jwtAuth, (req, res) => {
   });
 });
 
-app.use('*', (req, res) => {
-  return res.status(404).json({ message: 'Not Found' });
-});
-
-
 
 
 app.get("/", (request, response) => {
@@ -263,6 +258,10 @@ app.put('/question/:id', jsonParser, (req, res) => {
   			res.status(204).end();
     }	
   ) 
+});
+
+app.use('*', (req, res) => {
+  return res.status(404).json({ message: 'Not Found' });
 });
 
 

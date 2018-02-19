@@ -8,6 +8,21 @@ function getQuestions() {
 
 $(function () { //where the code starts
 
+let storage = window.localStorage;
+let token = storage.getItem("token");
+if (token) {
+  $(".logged_in").show();
+} else {
+  //user is not loged in
+  $(".logged_in").hide();
+}
+
+$(".logout").click(function(event) {
+  let storage = window.localStorage;
+  storage.removeItem("token");
+  window.location = "/";
+})
+
   //this happens as the page loads
   getQuestions()
       .then(questions => {
