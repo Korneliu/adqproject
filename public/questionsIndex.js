@@ -87,4 +87,12 @@ $(".profile").click(function () {
 $(".sign_up").click(function () {
   window.location = '/register.html';
 });
+$(".about_us").click(function () {
+  window.location = '/about.html';
+});
+
+$(".log_in").click(function () {
+  window.location = '/login.html';
+});
+
 

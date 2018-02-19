@@ -134,13 +134,47 @@ h1 {
 .boxProfile {
   padding: 10px;
 }
-.main_login {
-	margin-top: 200px;
-	margin-left: 100px;
+.login_main {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+	margin: 150px auto 0 auto;
+  font-size: 1.5em;
+  background-color: white;
 }
-.main_login {
-	margin-top: 200px;
-	margin-left: 100px;
+.login_header {
+  text-align: center;
+  padding: -10px;
+  color: #7bb737;
+}
+.login_username  {
+  padding: 10px;
+}
+.login_password {
+  padding: 10px;
+}
+.login_username_input {
+  height: 35px;
+  padding-left: 10px;
+  border: none;
+  background-color: #ecedea;
+}
+.login_password_input {
+  height: 35px;
+  padding-left: 10px;
+  border: none;
+  background-color: #ecedea;
+}
+.login_submit_button {
+  height: 35px;
+  color: white;
+  background-color: #7bb737;
+  border: none;
+}
+.login_submit_button:hover {
+  cursor: pointer;
+  transform: scale(1.06, 1.06);
+  transition: transform 0.1s linear;
 }
 
 .hidden {
@@ -200,5 +234,9 @@ h1 {
   text-align: center;
   font-weight: 900;
   font-size: 1.5em;
+}
+.about_main {
+  width: 800px;
+  margin: 100px auto;
 }
 
