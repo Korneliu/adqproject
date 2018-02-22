@@ -59,9 +59,10 @@ app.get("/profile", (request, response) => {
   response.sendFile(__dirname + '/public/profile.html');
 });
 
-//app.get("/question", (request, response) => {
- // response.sendFile(__dirname + '/public/question.html');
-//});
+app.get("/myAnswer", (request, response) => {
+  response.sendFile(__dirname + '/public/myAnswer.html');
+});
+
 app.get("/login", (request, response) => {
   response.sendFile(__dirname + '/public/login.html');
 });

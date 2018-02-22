@@ -42,3 +42,8 @@ $(function(){
     })
   });
 });
+$(".submit_red").click(function () {
+  window.location = '/';
+});
+
+

@@ -13,7 +13,7 @@ let token = storage.getItem("token");
 if (token) {
   $(".logged_in").show();
 } else {
-  //user is not loged in
+  //user is not logged in
   $(".logged_in").hide();
 }
 
@@ -34,6 +34,8 @@ $(".logout").click(function(event) {
   $('.mainIndex').on("click", ".boxIndex", function (event) {
     $('.mainIndex').hide();
     $('.singleQuestion').show();
+    $('.adding_answers').removeClass('invisible');
+    $('.adding_answers').addClass('logged_in');
     let id = $(event.target).data("id"); //id of question that was clicked
 
     //call the server to find the question details
@@ -53,24 +55,26 @@ $(".logout").click(function(event) {
           }
           let yes_answers = question.answers
               .filter(answer => answer.typeOfAnswer.toLowerCase() === "yes")
-              .map(answer => `<div class="box">
-      <div class="boxName">${answer.author.firstName} ${answer.author.lastName}</div>
-      <div class="content">${answer.content}</div>
-      <div class="date">${answer.published_date}</div>
-      <div class="showMore">Show More</div>
-      <div class="showLess invisible">Show less</div>
-      </div>`);
-          $('.ansYes').html(yes_answers);
-          let no_answers = question.answers
+              .map(answer => `
+                <div class="box">
+                <div class="boxName">${answer.author.firstName} ${answer.author.lastName}</div>
+                <div class="content">${answer.content}</div>
+                <div class="date">${answer.published_date}</div>
+                <div class="showMore">Show More</div>
+                <div class="showLess invisible">Show less</div>
+                </div>`);
+              $('.ansYes').html(yes_answers);
+              let no_answers = question.answers
               .filter(answer => answer.typeOfAnswer.toLowerCase() === "no")
-              .map(answer => `<div class="box">
-      <div class="boxName">${answer.author.firstName} ${answer.author.lastName}</div>
-      <div class="content">${answer.content}</div>
-      <div class="date">${answer.published_date}</div>
-      <div class="showMore">Show more</div>
-      <div class="showLess invisible ">Show less</div>
-      </div>`);
-          $('.ansNo').html(no_answers);
+              .map(answer => `
+                <div class="box">
+                <div class="boxName">${answer.author.firstName} ${answer.author.lastName}</div>
+                <div class="content">${answer.content}</div>
+                <div class="date">${answer.published_date}</div>
+                <div class="showMore">Show more</div>
+                <div class="showLess invisible ">Show less</div>
+                </div>`);
+              $('.ansNo').html(no_answers);
 
         })
         .catch(err => console.log(err));
@@ -109,5 +113,15 @@ $(".about_us").click(function () {
 $(".log_in").click(function () {
   window.location = '/login.html';
 });
+$(".submit_red").click(function () {
+  window.location = '/';
+});
+$(".home").click(function () {
+  window.location = '/';
+});
+$(".adding_answers").click(function() {
+  window.location = '/myAnswer';
+})
+
 
 

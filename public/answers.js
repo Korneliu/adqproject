@@ -1,4 +1,3 @@
-
 function getAnswers(){
 	return fetch(SERVER_URL + '/answers', {
   method: 'GET'
@@ -7,10 +6,19 @@ function getAnswers(){
 	.catch(err => console.log(err));  
     }
 $(function(){
+  let storage = window.localStorage;
+let token = storage.getItem("token");
+if (token) {
+  $(".logged_in").show();
+} else {
+  //user is not logged in
+  $(".logged_in").hide();
+}
   getAnswers()
      .then(function(question){
        let yes_answers = question.answers.filter(answer =>answer.typeOfAnswer === "yes" 
-       ).map(answer => `<div class="box">
+       ).map(answer => `
+       <div class="box">
       <div class="boxName">${answer.author}</div>
       <div class="content">${answer.content}</div>
       <div class="date">${answer.published_date}</div>
@@ -46,5 +54,6 @@ $(function(){
       $('.popUp').removeClass('popUp');
       $('.overlay').hide();
     })
+
 });
 

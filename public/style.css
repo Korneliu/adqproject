@@ -22,6 +22,40 @@ h1 {
   transform: scale(1.15, 1.15);
   transition: transform 0.1s linear;
 }
+.adding_answers {
+  width: 800px;
+  height: 50px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.adding_ansYes { 
+  background-color: #7bb737;
+  width: 150px;
+  height: 30px;
+  text-align: center;
+  line-height: 1.5;
+}
+.adding_ansYes:hover {
+  cursor: pointer;
+  transform: scale(1.06, 1.06);
+  transition: transform 0.1s linear;
+  color: white;
+}
+.adding_ansNo { 
+  background-color: #7bb737;
+  width: 150px;
+  height: 30px;
+  line-height: 1.5;
+  text-align: center;
+}
+.adding_ansNo:hover {
+  cursor: pointer;
+  transform: scale(1.06, 1.06);
+  transition: transform 0.1s linear;
+  color: white;
+}
 .main {
   width: 800px;
   text-align: center;
@@ -103,11 +137,11 @@ h1 {
   cursor: pointer;  
 }
 .mainIndex {
-  width: 800px;
+  width: 850px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin: 50px auto;
+  margin: 0 auto;
 }
 .boxIndex {
   width: 45%;
@@ -238,5 +272,24 @@ h1 {
 .about_main {
   width: 800px;
   margin: 100px auto;
+}
+.back_home:hover {
+  cursor: pointer;
+  color: white;
+  background-color: green;
+}
+.back_home {
+  width: 300px;
+  margin: 0 auto;
+  text-align: center;
+}
+.answer_form {
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  margin: 100px auto;
+}
+.answer_form_label {
+  font-size: 20px;
 }
 
