@@ -13,10 +13,14 @@
     <form action="/my-handling-form-page" method="post">
       <div>
         <div class="answer_form_label"><label for="msg">My answer:</label></div>
-        <div><textarea rows="30" cols="80" id="msg" name="user_message"></textarea></div>
+        <div><textarea rows="30" cols="80" id="msg" name="user_message" id="my_answer"></textarea></div>
         <div class="answer_form_button"><button type="submit">Post your answer</button></div>
       </div> 
     </form>
+    <input class="cancel_myAnswer" action="action" onclick="window.history.back(); return false;" type="button" value="Back" />
   </div>
+  <div class="error_message"></div>
+  <div class="aprove_message"></div>
+  <script src="myAnswer.js"></script>
 </body>
 </html>

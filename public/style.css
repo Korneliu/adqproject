@@ -1,7 +1,6 @@
 h1 {
  color: red; 
 }
-
 *{
   box-sizing : border-box;
 }
@@ -210,11 +209,9 @@ h1 {
   transform: scale(1.06, 1.06);
   transition: transform 0.1s linear;
 }
-
 .hidden {
   display: none;
 }
-
 .register_main {
   width: 400px;
   margin: 100px auto;
@@ -291,5 +288,13 @@ h1 {
 }
 .answer_form_label {
   font-size: 20px;
+}
+.back_previous_page {
+  margin: 30px auto;
+  width: 300px;
+}
+.message {
+  font-size: 2em;
+  color: red;
 }
 
