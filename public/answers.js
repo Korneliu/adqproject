@@ -54,6 +54,14 @@ if (token) {
       $('.popUp').removeClass('popUp');
       $('.overlay').hide();
     })
+    $(".adding_ansYes").click(function() {
+  $(".main").hide();
+  $(".answer_form").show();
+})
+$(".adding_ansNo").click(function() {
+  $(".main").hide();
+  $(".answer_form").show(); 
+})
 
 });
 

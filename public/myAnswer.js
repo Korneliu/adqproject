@@ -4,7 +4,9 @@ $(function(){
     event.preventDefault();
     const myAnswer = $('#my_answer').val(); 
     const newAnswer = {
-      myAnswer: myAnswer
+      content: myAnswer,
+      typeOfAnswer: typeOfAnswer
+
     }
 
     fetch(SERVER_URL + '/answers', {

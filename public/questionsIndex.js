@@ -12,10 +12,13 @@ let storage = window.localStorage;
 let token = storage.getItem("token");
 if (token) {
   $(".logged_in").show();
+  $(".logged_out").hide();
 } else {
   //user is not logged in
   $(".logged_in").hide();
-}
+  $(".logged_out").show();
+} 
+
 
 $(".logout").click(function(event) {
   let storage = window.localStorage;
@@ -34,7 +37,7 @@ $(".logout").click(function(event) {
   $('.mainIndex').on("click", ".boxIndex", function (event) {
     $('.mainIndex').hide();
     $('.singleQuestion').show();
-    $('.adding_answers').removeClass('invisible');
+    $('.adding_answers').show();
     $('.adding_answers').addClass('logged_in');
     let id = $(event.target).data("id"); //id of question that was clicked
 
@@ -98,6 +101,41 @@ $(".logout").click(function(event) {
       $('.popUp').removeClass('popUp');
       $('.overlay').hide();
     })
+    $(".answer_form").submit(function(event){
+    event.preventDefault();
+    const myAnswer = $('#my_answer').val(); 
+    const newAnswer = {
+      content: myAnswer,
+      typeOfAnswer: typeOfAnswer
+
+    }
+
+    fetch(SERVER_URL + '/answers', {
+      method: 'POST',
+      body: JSON.stringify(newAnswer),
+      headers: {
+        'content-type': 'application/json'
+      }
+    })
+    .then(res => res.json())
+      .then(answer => {
+        $(".ansNo").show();
+        $(".ansYes").show();
+        $(".add_answer").hide(); 
+        console.log(answer);
+          //redirect the user window.location....
+        if( answer.code === 422) {
+          $('.error_message').html(answer.message);  
+        } else {
+            //valid user
+          $('.aprove_message').html("Success!");
+        }
+      })
+      .catch(err => {
+      console.log(err);
+      $('.error_message').html(err.message);
+      })
+  });
 });
 
 $(".profile").click(function () {
@@ -119,8 +157,15 @@ $(".submit_red").click(function () {
 $(".home").click(function () {
   window.location = '/';
 });
-$(".adding_answers").click(function() {
-  window.location = '/myAnswer';
+$(".adding_ansYes").click(function() {
+  $(".ansNo").hide();
+  $(".ansYes").hide();
+  $(".add_answer").show();
+})
+$(".adding_ansNo").click(function() {
+  $(".ansNo").hide();
+  $(".ansYes").hide();
+  $(".add_answer").show(); 
 })
 
 
