@@ -19,8 +19,8 @@
     <div class="sign_up logged_out navbar_box">Sign Up</div>
     <div class="logout logged_in navbar_box">Logout</div>
   </div>
-  <div class="adding_answers hidden">
-    <div class="adding_ansYes">add answer</div>
+  <div class="adding_answers logged_in hidden">
+    <div class="adding_ansYes">add answer yes</div>
     <div class="adding_ansNo">add answer</div>
   </div>
   <div class="mainIndex">
@@ -38,13 +38,13 @@
   <div class="hidden add_answer">
   <div class="answer_form">
     <form action="/my-handling-form-page" method="post">
-      <div>
-        <div class="answer_form_label"><label for="msg">My answer:</label></div>
-        <div><textarea rows="30" cols="80" id="msg" name="user_message" id="my_answer"></textarea></div>
-        <div class="answer_form_button"><button type="submit">Post your answer</button></div>
-      </div> 
+      <div class="answer_form_label"><label for="msg">My answer:</label></div>
+      <div class="answer_textarea_buttons">
+        <textarea style="width:100%;" autofocus rows="30" id="msg" name="user_message" id="my_answer"></textarea>
+      <div><button class="answer_form_button" type="submit">Post your answer</button></div>
+      <div><input class="cancel_myAnswer" action="action" onclick="window.history.back();return false;" type="button" value="Back" /></div>
+      </div>
     </form>
-    <input class="cancel_myAnswer" action="action" onclick="window.history.back(); return false;" type="button" value="Back" />
   </div>
 </div>
   <div class="overlay"></div>

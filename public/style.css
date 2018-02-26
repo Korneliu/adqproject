@@ -7,11 +7,12 @@ h1 {
 .navbar {
   width: 800px;
   margin: 0 auto;
-  background-color: #f4b942;
+  background-color: #2C7D54;
   display: flex;
   flex-direction: row;
   flex-flow: row wrap;
   justify-content: flex-end;
+  color: white;
 }
 .navbar_box {
   margin: 10px;
@@ -25,16 +26,18 @@ h1 {
   width: 800px;
   height: 50px;
   margin: 20px auto;
+}
+.logged_in {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
 }
 .adding_ansYes { 
-  background-color: #7bb737;
+  background-color: #49906C;
   width: 150px;
   height: 30px;
   text-align: center;
-  line-height: 1.5;
+  line-height: 1.6;
+  float: left;
 }
 .adding_ansYes:hover {
   cursor: pointer;
@@ -43,11 +46,12 @@ h1 {
   color: white;
 }
 .adding_ansNo { 
-  background-color: #7bb737;
+  background-color: #49906C;
   width: 150px;
   height: 30px;
-  line-height: 1.5;
+  line-height: 1.6;
   text-align: center;
+  float: right;
 }
 .adding_ansNo:hover {
   cursor: pointer;
@@ -77,7 +81,7 @@ h1 {
   width: 100%;
   margin: auto;
   display: flex;
-  background-color: #95c0c6;
+  background-color: #85B39C;
   align-items : flex-start;
   }
 .ansYes {
@@ -97,7 +101,7 @@ h1 {
   width: 100%;
   height: 100px;
   padding: 10px;
-  background-color: #efebde;
+  background-color: #A9C8B8;
   border: 1px solid black;
   text-align: center;
   display: flex;
@@ -109,6 +113,12 @@ h1 {
 }
 .showMore {
   font-weight: 800;
+}
+.showMore:hover {
+  cursor: pointer;
+  transform: scale(1.08, 1.08);
+  transition: transform 0.1s linear;
+  color: white; 
 }
 .date {
   font-size: 0.6em;
@@ -145,11 +155,18 @@ h1 {
 .boxIndex {
   width: 45%;
   height: 100px;
-  background-color: #c4cea5;
+  background-color: #85B39C;
   text-align: center;
   border: 1px solid black;
-  line-height: 6;
+  line-height: 4.5;
   margin: 10px;
+  color: white;
+  font-size: 1.3em;
+}
+.boxIndex:hover {
+  cursor: pointer;
+  transform: scale(1.06, 1.06);
+  transition: transform 0.1s linear;   
 }
 .navbar_profile {
   width: 800px;
@@ -282,16 +299,43 @@ h1 {
 }
 .answer_form {
   width: 800px;
+  margin: 50px auto;
   display: flex;
   flex-direction: column;
-  margin: 100px auto;
 }
 .answer_form_label {
-  font-size: 20px;
+  font-size: 20px; 
+}
+.answer_form_button {
+  width: 300px;
+  height: 40px;
+  margin: 20px auto;
+  background-color: #85B39C;
+  color: white;
+  border: none;
+  float: right;
+}
+.answer_form_button:hover {
+  cursor: pointer;
+  transform: scale(1.08, 1.08);
+  transition: transform 0.1s linear; 
 }
 .back_previous_page {
-  margin: 30px auto;
+  margin: 30px auto; 
+}
+.cancel_myAnswer {
   width: 300px;
+  height: 40px;
+  margin: 20px auto;
+  background-color: #85B39C;
+  color: white;
+  border: none;
+  float: left;
+}
+.cancel_myAnswer:hover {
+  cursor: pointer;
+  transform: scale(1.08, 1.08);
+  transition: transform 0.1s linear; 
 }
 .message {
   font-size: 2em;
