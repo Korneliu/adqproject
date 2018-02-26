@@ -342,3 +342,8 @@ h1 {
   color: red;
 }
 
+.hide {
+  display: none;
+}
+
+
