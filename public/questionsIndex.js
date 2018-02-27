@@ -36,8 +36,6 @@ $(".logout").click(function(event) {
 	$('.mainIndex').on("click", ".boxIndex", function (event) {
 		$('.mainIndex').hide();
 		$('.singleQuestion').show();
-		$('.adding_answers').show();
-		$('.adding_answers').addClass('logged_in');
 		let id = $(event.target).data("id"); //id of question that was clicked
 
 		//call the server to find the question details
@@ -120,7 +118,7 @@ $(".logout").click(function(event) {
 			.then(answer => {
 				$(".ansNo").show();
 				$(".ansYes").show();
-				$(".add_answer").hide(); 
+				$(".add_answer").hide();
 				console.log(answer);
 					//redirect the user window.location....
 				if( answer.code === 422) {
