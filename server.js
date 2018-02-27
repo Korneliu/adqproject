@@ -95,7 +95,7 @@ app.get('/answers/:id', (req, res) => {
 });
 
 app.post('/answers', jsonParser, (req, res) => {
-	const requiredFields = ['content', 'firstName','lastName','published_date','typeOfAnswer'];
+	const requiredFields = ['content', 'typeOfAnswer'];
 	for (let i=0; i<requiredFields.length; i++) {
 	const field = requiredFields[i];
 		if (!(field in req.body)) {
@@ -107,8 +107,8 @@ app.post('/answers', jsonParser, (req, res) => {
 	Answers
 	.create({
 		content: req.body.content,
-		author: {firstName:req.body.firstName,lastName:req.body.lastName},
-		published_date: req.body.published_date,
+		author: {firstName:"TEMP",lastName:"TEMP"},
+		published_date: Date.now(),
 		typeOfAnswer: req.body.typeOfAnswer
 	})
 	.then(
@@ -116,8 +116,8 @@ app.post('/answers', jsonParser, (req, res) => {
 			Question.findById(req.body.id)	
 			.then(
 				question=>{
-					question.answers.push(answer)
-					question.save()
+					question.answers.push(answer);
+					question.save().populate('answers')
 					.then(question=>res.status(200).json(question))
 					.catch(err=>console.log(err))
 				}
