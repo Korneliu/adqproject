@@ -37,6 +37,7 @@ $(".logout").click(function(event) {
 		$('.mainIndex').hide();
 		$('.singleQuestion').show();
 		let id = $(event.target).data("id"); //id of question that was clicked
+		$('#question_id').val(id);
 
 		//call the server to find the question details
 		fetch(SERVER_URL + '/question/' + id, {
@@ -100,11 +101,14 @@ $(".logout").click(function(event) {
 		})
 		$(".answer_form").submit(function(event){
 		event.preventDefault();
-		const myAnswer = $('#my_answer').val(); 
+		const myAnswer = $('#my_answer').val();
+		const typeOfAnswer = $('#answerType').val();
+		const question_id = $('#question_id').val();
+
 		const newAnswer = {
 			content: myAnswer,
-			typeOfAnswer: typeOfAnswer
-
+			typeOfAnswer: typeOfAnswer,
+			id: question_id
 		}
 
 		fetch(SERVER_URL + '/answers', {
@@ -115,7 +119,8 @@ $(".logout").click(function(event) {
 			}
 		})
 		.then(res => res.json())
-			.then(answer => {
+			.then(question => {
+				//update the display with this question
 				$(".ansNo").show();
 				$(".ansYes").show();
 				$(".add_answer").hide();
@@ -158,11 +163,13 @@ $(".adding_ansYes").click(function() {
 	$(".ansNo").hide();
 	$(".ansYes").hide();
 	$(".add_answer").show();
+	$('#answerType').val("yes");
 })
 $(".adding_ansNo").click(function() {
 	$(".ansNo").hide();
 	$(".ansYes").hide();
-	$(".add_answer").show(); 
+	$(".add_answer").show();
+  $('#answerType').val("no");
 })
 
 
