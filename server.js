@@ -94,8 +94,8 @@ app.get('/answers/:id', (req, res) => {
     });
 });
 
-app.post('/answers', jsonParser, (req, res) => {
-	const requiredFields = ['content', 'typeOfAnswer'];
+app.post('/answers', jsonParser, jwtAuth, (req, res) => {
+	const requiredFields = ['content', 'typeOfAnswer', 'id'];
 	for (let i=0; i<requiredFields.length; i++) {
 	const field = requiredFields[i];
 		if (!(field in req.body)) {
@@ -104,20 +104,24 @@ app.post('/answers', jsonParser, (req, res) => {
 			return res.status(400).send(message);
 		}
 	}
+	console.log('The logged in user: ', req.user);
 	Answers
 	.create({
 		content: req.body.content,
-		author: {firstName:"TEMP",lastName:"TEMP"},
+		author: {firstName: req.user.firstName,lastName:req.user.lastName},
 		published_date: Date.now(),
 		typeOfAnswer: req.body.typeOfAnswer
 	})
 	.then(
 		answer => {
-			Question.findById(req.body.id)	
+			Question
+					.findById(req.body.id)
+					.populate('answers')
+					.exec()
 			.then(
 				question=>{
 					question.answers.push(answer);
-					question.save().populate('answers')
+					question.save()
 					.then(question=>res.status(200).json(question))
 					.catch(err=>console.log(err))
 				}

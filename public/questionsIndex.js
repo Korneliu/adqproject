@@ -1,3 +1,39 @@
+function displayQuestion(question){
+  //You now have a full question from the server
+  $(".question").html(question.text);
+
+  //try to display the answers
+  if(question.answers.length === 0){
+    $('.message').html('No answers yet!');
+  } else {
+    $('.message').html('');
+  }
+  let yes_answers = question.answers
+      .filter(answer => answer.typeOfAnswer.toLowerCase() === "yes")
+      .map(answer => `
+							<div class="box">
+							<div class="boxName">${answer.author.firstName} ${answer.author.lastName}</div>
+							<div class="content">${answer.content}</div>
+							<div class="date">${answer.published_date}</div>
+							<div class="showMore">Show More</div>
+							<div class="showLess invisible">Show less</div>
+							</div>`);
+  $('.ansYes').html(yes_answers);
+  let no_answers = question.answers
+      .filter(answer => answer.typeOfAnswer.toLowerCase() === "no")
+      .map(answer => `
+								<div class="box">
+								<div class="boxName">${answer.author.firstName} ${answer.author.lastName}</div>
+								<div class="content">${answer.content}</div>
+								<div class="date">${answer.published_date}</div>
+								<div class="showMore">Show more</div>
+								<div class="showLess invisible ">Show less</div>
+								</div>`);
+  $('.ansNo').html(no_answers);
+
+}
+
+
 function getQuestions() {
 	return fetch(SERVER_URL + '/question', {
 		method: 'GET'
@@ -44,41 +80,8 @@ $(".logout").click(function(event) {
 			method: 'GET'
 		})
 			.then(res => res.json())
-			.then(question => {
-					//You now have a full question from the server
-				$(".question").html(question.text);
-
-					//try to display the answers
-				if(question.answers.length === 0){
-					$('.message').html('No answers yet!');
-					} else {
-						$('.message').html('');
-					}
-					let yes_answers = question.answers
-						.filter(answer => answer.typeOfAnswer.toLowerCase() === "yes")
-						.map(answer => `
-							<div class="box">
-							<div class="boxName">${answer.author.firstName} ${answer.author.lastName}</div>
-							<div class="content">${answer.content}</div>
-							<div class="date">${answer.published_date}</div>
-							<div class="showMore">Show More</div>
-							<div class="showLess invisible">Show less</div>
-							</div>`);
-							$('.ansYes').html(yes_answers);
-							let no_answers = question.answers
-							.filter(answer => answer.typeOfAnswer.toLowerCase() === "no")
-							.map(answer => `
-								<div class="box">
-								<div class="boxName">${answer.author.firstName} ${answer.author.lastName}</div>
-								<div class="content">${answer.content}</div>
-								<div class="date">${answer.published_date}</div>
-								<div class="showMore">Show more</div>
-								<div class="showLess invisible ">Show less</div>
-								</div>`);
-							$('.ansNo').html(no_answers);
-
-				})
-				.catch(err => console.log(err));
+			.then(displayQuestion)
+			.catch(err => console.log(err));
 	})
 
 	$('.singleQuestion').on('click','.showMore',e=>{
@@ -115,12 +118,13 @@ $(".logout").click(function(event) {
 			method: 'POST',
 			body: JSON.stringify(newAnswer),
 			headers: {
-				'content-type': 'application/json'
+				'content-type': 'application/json',
+				'Authorization': 'Bearer ' + token
 			}
 		})
 		.then(res => res.json())
 			.then(question => {
-				//update the display with this question
+				displayQuestion(question);
 				$(".ansNo").show();
 				$(".ansYes").show();
 				$(".add_answer").hide(); 
