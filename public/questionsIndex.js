@@ -171,6 +171,11 @@ $(".adding_ansNo").click(function() {
 	$(".add_answer").show();
   $('#answerType').val("no");
 })
+$(".cancel_myAnswer").click(function() {
+	$(".ansNo").show();
+	$(".ansYes").show();
+	$(".add_answer").hide();	
+})
 
 
 
