@@ -127,7 +127,7 @@ $(".logout").click(function(event) {
 				displayQuestion(question);
 				$(".ansNo").show();
 				$(".ansYes").show();
-				$(".add_answer").hide(); 
+				$(".add_answer").hide();
 				console.log(answer);
 					//redirect the user window.location....
 				if( answer.code === 422) {
@@ -174,6 +174,11 @@ $(".adding_ansNo").click(function() {
 	$(".ansYes").hide();
 	$(".add_answer").show();
   $('#answerType').val("no");
+})
+$(".cancel_myAnswer").click(function() {
+	$(".ansNo").show();
+	$(".ansYes").show();
+	$(".add_answer").hide();	
 })
 
 

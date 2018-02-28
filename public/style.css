@@ -26,6 +26,8 @@ h1 {
   width: 800px;
   height: 50px;
   margin: 20px auto;
+  display: flex;
+  justify-content: space-between;
 }
 .logged_in {
   display: flex;
@@ -62,8 +64,6 @@ h1 {
 .main {
   width: 800px;
   text-align: center;
-  display: flex; 
-  flex-direction: row;
 }
 .overlay {
   background-color: rgba(0,0,0,0.3);
@@ -76,14 +76,13 @@ h1 {
   top: 0;
   left: 0;
 }
-.questions{
-  position: relative;
-  width: 100%;
-  margin: auto;
+.questions {
   display: flex;
+  flex-direction: row;
+  width: 100%;
   background-color: #85B39C;
-  align-items : flex-start;
-  }
+  justify-content: space-between;
+}
 .ansYes {
   width: 50%;
   display: flex;
