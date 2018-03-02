@@ -214,16 +214,27 @@ h1 {
   border: none;
   background-color: #ecedea;
 }
-.login_submit_button {
-  height: 35px;
-  color: white;
-  background-color: #7bb737;
-  border: none;
+.submit_login {
+  margin: 0 auto;
+  width: 50%;
+  padding: 3px;
+  border: 0px;
 }
-.login_submit_button:hover {
+.submit_login:hover {
   cursor: pointer;
-  transform: scale(1.06, 1.06);
-  transition: transform 0.1s linear;
+  transform: scale(1.08, 1.08);
+  transition: transform 0.1s linear; 
+}
+.cancel_login:hover {
+  cursor: pointer;
+  transform: scale(1.08, 1.08);
+  transition: transform 0.1s linear; 
+}
+.cancel_login {
+  margin: 0 auto;
+  width: 50%;
+  padding: 3px;
+  border: 0px;
 }
 .hidden {
   display: none;
@@ -233,7 +244,6 @@ h1 {
   margin: 100px auto;
   display: flex;
   flex-direction: column;  
-  justify-content: 
 }
 .register_box {
   padding: 3px;
@@ -241,7 +251,15 @@ h1 {
   line-height: 1;
 }
 
-.submit_boxes {
+.submit_boxes_login {
+  margin: 0 auto;
+  width: 300px;
+  display: flex;
+  flex-direction: row;
+}
+.submit_boxes_register {
+  margin: 0 auto;
+  width: 400px;
   display: flex;
   flex-direction: row;
 }
@@ -289,12 +307,14 @@ h1 {
 .back_home:hover {
   cursor: pointer;
   color: white;
-  background-color: green;
+  background-color: #2C7D54;
 }
 .back_home {
   width: 300px;
+  height: 30px;
   margin: 0 auto;
   text-align: center;
+  line-height: 1.5;
 }
 .answer_form {
   width: 800px;
@@ -320,7 +340,7 @@ h1 {
   transition: transform 0.1s linear; 
 }
 .back_previous_page {
-  margin: 30px auto; 
+  margin: 0 auto;
 }
 .cancel_myAnswer {
   width: 300px;

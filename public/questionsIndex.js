@@ -159,6 +159,10 @@ $(".submit_red").click(function () {
 $(".home").click(function () {
 	window.location = '/';
 });
+$(".back_home").click(function () {
+  window.location = '/';
+});
+
 $(".adding_ansYes").click(function() {
 	$(".ansNo").hide();
 	$(".ansYes").hide();
