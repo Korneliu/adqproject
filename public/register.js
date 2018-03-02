@@ -15,7 +15,7 @@ $(function(){
       firstName: firstName,
       lastName: lastName,
       password: password
-    }
+    };
 
     fetch(SERVER_URL + '/api/users', {
       method: 'POST',

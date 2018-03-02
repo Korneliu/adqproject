@@ -70,10 +70,13 @@ app.get("/register", (request, response) => {
 	response.sendFile(__dirname + '/public/register.html');
 });
 
-app.get('/answers', (req, res) => {
+app.get('/answers', jwtAuth, (req, res) => {
+
 	Answers
-	.find()
-	.limit(20)
+	.find({
+		'author.firstName': req.user.firstName,
+		'author.lastName': req.user.lastName
+	})
 	.then(answers => {
 		res.json(answers.map(answer => answer.serialize()));
 	})
@@ -99,7 +102,7 @@ app.post('/answers', jsonParser, jwtAuth, (req, res) => {
 	for (let i=0; i<requiredFields.length; i++) {
 	const field = requiredFields[i];
 		if (!(field in req.body)) {
-			const message = `Missing \`${field}\` in request body`
+			const message = `Missing \`${field}\` in request body`;
 			console.error(message);
 			return res.status(400).send(message);
 		}
@@ -149,7 +152,7 @@ app.put('/answers/:id', jsonParser, (req, res) => {
 	for (let i=0; i<requiredFields.length; i++) {
 		const field = requiredFields[i];
 		if (!(field in req.body)) {
-			const message = `Missing \`${field}\` in request body`
+			const message = `Missing \`${field}\` in request body`;
 			console.error(message);
 			return res.status(400).send(message);
 		}
@@ -172,7 +175,7 @@ app.put('/answers/:id', jsonParser, (req, res) => {
   	},
   	function(err) {
   	if(err)
-  		return res.status(500).send(err)
+  		return res.status(500).send(err);
   			res.status(204).end();
     }	
   ) 
@@ -206,7 +209,7 @@ app.post('/question', jsonParser, (req, res) => {
 	for (let i=0; i<requiredFields.length; i++) {
 	const field = requiredFields[i];
 		if (!(field in req.body)) {
-			const message = `Missing \`${field}\` in request body`
+			const message = `Missing \`${field}\` in request body`;
 			console.error(message);
 			return res.status(400).send(message);
 		}
@@ -239,7 +242,7 @@ app.put('/question/:id', jsonParser, (req, res) => {
 	for (let i=0; i<requiredFields.length; i++) {
 		const field = requiredFields[i];
 		if (!(field in req.body)) {
-			const message = `Missing \`${field}\` in request body`
+			const message = `Missing \`${field}\` in request body`;
 			console.error(message);
 			return res.status(400).send(message);
 		}
@@ -259,7 +262,7 @@ app.put('/question/:id', jsonParser, (req, res) => {
   	},
   	function(err) {
   	if(err)
-  		return res.status(500).send(err)
+  		return res.status(500).send(err);
   			res.status(204).end();
     }	
   ) 
@@ -305,6 +308,5 @@ function closeServer() {
 
 if (require.main === module) {
   runServer().catch(err => console.error(err));
-};
-
+}
 module.exports = {app, runServer, closeServer};

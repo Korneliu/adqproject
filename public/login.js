@@ -10,7 +10,7 @@ $(function(){
     const newUser = {
       username: login_username,
       password: login_password
-    }
+    };
 
     fetch(SERVER_URL + '/api/auth/login', {
       method: 'POST',
@@ -22,7 +22,7 @@ $(function(){
         .then(res => res.json())
         .then(token => {
           console.log(token);
-          let storage = window.localStorage
+          let storage = window.localStorage;
           storage.setItem("token",token.authToken);
           window.location = "/";
         })

@@ -35,19 +35,19 @@ if (token) {
       <div class="showLess invisible ">Show less</div>
       </div>`);
     $('.ansNo').html(no_answers);
-     })
+     });
     $('.questions').on('click','.showMore',e=>{
       $(e.target).closest('.box').addClass('popUp');
       $(e.target).closest('.showMore').addClass('invisible');
       $(e.target).siblings('.showLess').removeClass('invisible');
       $('.overlay').show();
-    })
+    });
     $('.questions').on('click','.showLess',e=>{
       $(e.target).closest('.box').removeClass('popUp');
       $(e.target).closest('.showLess').addClass('invisible');
       $(e.target).siblings('.showMore').removeClass('invisible');
       $('.overlay').hide();
-    })
+    });
     
     $('.overlay').on('click', function(e){
       e.stopPropagation();

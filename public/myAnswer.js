@@ -1,39 +1,27 @@
 $(function(){
 
-  $(".answer_form").submit(function(event){
-    event.preventDefault();
-    const myAnswer = $('#my_answer').val(); 
-    const newAnswer = {
-      content: myAnswer,
-      typeOfAnswer: typeOfAnswer
-
+    if(!gToken){
+      window.location = '/';
     }
 
     fetch(SERVER_URL + '/answers', {
-      method: 'POST',
-      body: JSON.stringify(newAnswer),
+      method: 'GET',
       headers: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        'Authorization': 'Bearer ' + gToken
       }
     })
     .then(res => res.json())
-      .then(answer => {
-        console.log(answer);
-          //redirect the user window.location....
-        if( answer.code === 422) {
-          $('.error_message').html(answer.message);  
-        } else {
-            //valid user
-          $('.aprove_message').html("Success!");
-        }
+      .then(answers => {
+        let html = answers.map(answer => {
+          return `<div> <span>${moment(+answer.published_date).fromNow()}</span> ${answer.content} (${answer.typeOfAnswer})</div>`;
+        })
+        $('main').html(html);
       })
       .catch(err => {
-      console.log(err);
-      $('.error_message').html(err.message);
+        console.log(err);
+        $('.error_message').html(err.message);
       })
-  });
-});
-$(".answer_form_button").click(function () {
-  window.location = '/';
+
 });
 
