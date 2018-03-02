@@ -22,9 +22,9 @@ $(function(){
         .then(res => res.json())
         .then(token => {
           console.log(token);
-    let storage = window.localStorage
-    storage.setItem("token",token.authToken);
-    window.location = "/";
+          let storage = window.localStorage
+          storage.setItem("token",token.authToken);
+          window.location = "/";
         })
     .catch(err => {
       console.log(err);
